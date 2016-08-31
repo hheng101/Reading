@@ -1,0 +1,60 @@
+//
+//  PrefixHeader.pch
+//  JYReading
+//
+//  Created by 俞洋 on 16/8/31.
+//  Copyright © 2016年 Journey. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+//定义判断是iphone5 、iphone6等
+#define iPhone5 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 1136), [[UIScreen mainScreen] currentMode].size) : NO)
+#define iPhone6 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? (CGSizeEqualToSize(CGSizeMake(750, 1334), [[UIScreen mainScreen] currentMode].size) || CGSizeEqualToSize(CGSizeMake(640, 1136), [[UIScreen mainScreen] currentMode].size)) : NO)
+#define iPhone6plus ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? (CGSizeEqualToSize(CGSizeMake(1125, 2001), [[UIScreen mainScreen] currentMode].size) || CGSizeEqualToSize(CGSizeMake(1242, 2208), [[UIScreen mainScreen] currentMode].size)) : NO)
+
+
+// RGB颜色
+#define JSColor(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
+//IOS7以上版本
+#define IOS7 ([[UIDevice currentDevice].systemVersion doubleValue] >= 7.0)
+
+
+#define MaintextColor JSColor(235,101,8)
+
+// 随机色
+#define JSRandomColor JSColor(arc4random_uniform(256), arc4random_uniform(256), arc4random_uniform(256))
+
+#define  font(a) iPhone5 ?[UIFont systemFontOfSize:a] : iPhone6 ? [UIFont systemFontOfSize:a + 1] : iPhone6plus ? [UIFont systemFontOfSize:a + 5] : [UIFont systemFontOfSize:a]
+
+//当前屏幕的bounds
+#define   UIScreenSize  [[UIScreen mainScreen]bounds].size
+#define SCREEN_WIDTH                    ([UIScreen mainScreen].bounds.size.width)
+#define SCREEN_HEIGHT                   ([UIScreen mainScreen].bounds.size.height)
+
+
+#define JSNotificationCenter [NSNotificationCenter defaultCenter]
+#endif /* WYSHeader_pch */
+
+#ifdef __OBJC__
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import "UIView+Extension.h"
+#import "UIBarButtonItem+Extension.h"
+#import "AFNetworking.h"
+#import "JSExtension.h"
+#import "UIImageView+WebCache.h"
+#import "KVNProgress.h"
+#endif
+
+#ifdef DEBUG // 处于开发阶段
+#define JSLog(...) NSLog(@"方法:%s|第%d行 \n|—————————————————————————————————————————————————————————%@\n\n",__func__,__LINE__,[NSString stringWithFormat:__VA_ARGS__])//__va__args__可变参数不需要％@
+//#define JSLog(...) NSLog(__VA_ARGS__)
+#else // 处于发布阶段
+#define JSLog(...)
+
+#endif /* PrefixHeader_pch */
