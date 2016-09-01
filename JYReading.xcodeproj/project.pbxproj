@@ -25,7 +25,7 @@
 		CE5FF31B1D76B8BD003E5286 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5FF30F1D76B8BD003E5286 /* AFURLSessionManager.m */; };
 		CE5FF31E1D76C5AD003E5286 /* BookCateGoryVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5FF31D1D76C5AD003E5286 /* BookCateGoryVC.m */; };
 		CE5FF3211D76C5E8003E5286 /* HotBooksVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5FF3201D76C5E8003E5286 /* HotBooksVC.m */; };
-		CE5FF3241D76C5F5003E5286 /* LibraryVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5FF3231D76C5F5003E5286 /* LibraryVC.m */; };
+		CE5FF3241D76C5F5003E5286 /* LibraryVC.mm in Sources */ = {isa = PBXBuildFile; fileRef = CE5FF3231D76C5F5003E5286 /* LibraryVC.mm */; };
 		CE5FF3301D76C65D003E5286 /* UINavigationItem+extison.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5FF3271D76C65D003E5286 /* UINavigationItem+extison.m */; };
 		CE5FF3311D76C65D003E5286 /* UIView+Snapshot.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5FF3291D76C65D003E5286 /* UIView+Snapshot.m */; };
 		CE5FF3321D76C65D003E5286 /* JYShotGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5FF32B1D76C65D003E5286 /* JYShotGestureRecognizer.m */; };
@@ -65,6 +65,20 @@
 		CE5FF3A01D76E208003E5286 /* UIImageView+HighlightedWebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5FF37F1D76E208003E5286 /* UIImageView+HighlightedWebCache.m */; };
 		CE5FF3A11D76E208003E5286 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5FF3811D76E208003E5286 /* UIImageView+WebCache.m */; };
 		CE5FF3A21D76E208003E5286 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5FF3831D76E208003E5286 /* UIView+WebCacheOperation.m */; };
+		CEA9951F1D77B85D00E852A7 /* BookListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA9951D1D77B85D00E852A7 /* BookListCell.m */; };
+		CEA995201D77B85D00E852A7 /* BookListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEA9951E1D77B85D00E852A7 /* BookListCell.xib */; };
+		CEA995321D77C0E400E852A7 /* MJRefresh.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CEA995221D77C0E400E852A7 /* MJRefresh.bundle */; };
+		CEA995331D77C0E400E852A7 /* MJRefreshBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA995251D77C0E400E852A7 /* MJRefreshBaseView.m */; };
+		CEA995341D77C0E400E852A7 /* MJRefreshConst.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA995271D77C0E400E852A7 /* MJRefreshConst.m */; };
+		CEA995351D77C0E400E852A7 /* MJRefreshFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA995291D77C0E400E852A7 /* MJRefreshFooterView.m */; };
+		CEA995361D77C0E400E852A7 /* MJRefreshHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA9952B1D77C0E400E852A7 /* MJRefreshHeaderView.m */; };
+		CEA995371D77C0E400E852A7 /* UIScrollView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA9952D1D77C0E400E852A7 /* UIScrollView+MJExtension.m */; };
+		CEA995381D77C0E400E852A7 /* UIScrollView+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA9952F1D77C0E400E852A7 /* UIScrollView+MJRefresh.m */; };
+		CEA995391D77C0E400E852A7 /* UIView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA995311D77C0E400E852A7 /* UIView+MJExtension.m */; };
+		CEA995451D77D27500E852A7 /* BookIntroduceVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA995431D77D27500E852A7 /* BookIntroduceVC.m */; };
+		CEA995461D77D27500E852A7 /* BookIntroduceVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEA995441D77D27500E852A7 /* BookIntroduceVC.xib */; };
+		CEA9954A1D77F4B100E852A7 /* ReadingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA995491D77F4B100E852A7 /* ReadingVC.m */; };
+		CEA9954D1D78264C00E852A7 /* E_Paging.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA9954C1D78264C00E852A7 /* E_Paging.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -105,7 +119,7 @@
 		CE5FF31F1D76C5E8003E5286 /* HotBooksVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotBooksVC.h; sourceTree = "<group>"; };
 		CE5FF3201D76C5E8003E5286 /* HotBooksVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotBooksVC.m; sourceTree = "<group>"; };
 		CE5FF3221D76C5F5003E5286 /* LibraryVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LibraryVC.h; sourceTree = "<group>"; };
-		CE5FF3231D76C5F5003E5286 /* LibraryVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LibraryVC.m; sourceTree = "<group>"; };
+		CE5FF3231D76C5F5003E5286 /* LibraryVC.mm */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.objc; fileEncoding = 4; path = LibraryVC.mm; sourceTree = "<group>"; };
 		CE5FF3261D76C65D003E5286 /* UINavigationItem+extison.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationItem+extison.h"; sourceTree = "<group>"; };
 		CE5FF3271D76C65D003E5286 /* UINavigationItem+extison.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationItem+extison.m"; sourceTree = "<group>"; };
 		CE5FF3281D76C65D003E5286 /* UIView+Snapshot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Snapshot.h"; sourceTree = "<group>"; };
@@ -186,6 +200,32 @@
 		CE5FF3811D76E208003E5286 /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
 		CE5FF3821D76E208003E5286 /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
 		CE5FF3831D76E208003E5286 /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
+		CEA9951C1D77B85D00E852A7 /* BookListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookListCell.h; sourceTree = "<group>"; };
+		CEA9951D1D77B85D00E852A7 /* BookListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookListCell.m; sourceTree = "<group>"; };
+		CEA9951E1D77B85D00E852A7 /* BookListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BookListCell.xib; sourceTree = "<group>"; };
+		CEA995221D77C0E400E852A7 /* MJRefresh.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MJRefresh.bundle; sourceTree = "<group>"; };
+		CEA995231D77C0E400E852A7 /* MJRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefresh.h; sourceTree = "<group>"; };
+		CEA995241D77C0E400E852A7 /* MJRefreshBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshBaseView.h; sourceTree = "<group>"; };
+		CEA995251D77C0E400E852A7 /* MJRefreshBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshBaseView.m; sourceTree = "<group>"; };
+		CEA995261D77C0E400E852A7 /* MJRefreshConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshConst.h; sourceTree = "<group>"; };
+		CEA995271D77C0E400E852A7 /* MJRefreshConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshConst.m; sourceTree = "<group>"; };
+		CEA995281D77C0E400E852A7 /* MJRefreshFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshFooterView.h; sourceTree = "<group>"; };
+		CEA995291D77C0E400E852A7 /* MJRefreshFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshFooterView.m; sourceTree = "<group>"; };
+		CEA9952A1D77C0E400E852A7 /* MJRefreshHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshHeaderView.h; sourceTree = "<group>"; };
+		CEA9952B1D77C0E400E852A7 /* MJRefreshHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshHeaderView.m; sourceTree = "<group>"; };
+		CEA9952C1D77C0E400E852A7 /* UIScrollView+MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+MJExtension.h"; sourceTree = "<group>"; };
+		CEA9952D1D77C0E400E852A7 /* UIScrollView+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+MJExtension.m"; sourceTree = "<group>"; };
+		CEA9952E1D77C0E400E852A7 /* UIScrollView+MJRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+MJRefresh.h"; sourceTree = "<group>"; };
+		CEA9952F1D77C0E400E852A7 /* UIScrollView+MJRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+MJRefresh.m"; sourceTree = "<group>"; };
+		CEA995301D77C0E400E852A7 /* UIView+MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MJExtension.h"; sourceTree = "<group>"; };
+		CEA995311D77C0E400E852A7 /* UIView+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MJExtension.m"; sourceTree = "<group>"; };
+		CEA995421D77D27500E852A7 /* BookIntroduceVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookIntroduceVC.h; sourceTree = "<group>"; };
+		CEA995431D77D27500E852A7 /* BookIntroduceVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookIntroduceVC.m; sourceTree = "<group>"; };
+		CEA995441D77D27500E852A7 /* BookIntroduceVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BookIntroduceVC.xib; sourceTree = "<group>"; };
+		CEA995481D77F4B100E852A7 /* ReadingVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReadingVC.h; sourceTree = "<group>"; };
+		CEA995491D77F4B100E852A7 /* ReadingVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReadingVC.m; sourceTree = "<group>"; };
+		CEA9954B1D78264C00E852A7 /* E_Paging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = E_Paging.h; sourceTree = "<group>"; };
+		CEA9954C1D78264C00E852A7 /* E_Paging.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = E_Paging.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -241,6 +281,7 @@
 		CE5FF2EC1D76B8BD003E5286 /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				CEA9953A1D77C81100E852A7 /* BookInfo */,
 				CE5FF2ED1D76B8BD003E5286 /* BookCategory */,
 				CE5FF2F11D76B8BD003E5286 /* HotBooks */,
 				CE5FF2F51D76B8BD003E5286 /* Library */,
@@ -284,6 +325,9 @@
 		CE5FF2F01D76B8BD003E5286 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				CEA9951C1D77B85D00E852A7 /* BookListCell.h */,
+				CEA9951D1D77B85D00E852A7 /* BookListCell.m */,
+				CEA9951E1D77B85D00E852A7 /* BookListCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -335,7 +379,7 @@
 			isa = PBXGroup;
 			children = (
 				CE5FF3221D76C5F5003E5286 /* LibraryVC.h */,
-				CE5FF3231D76C5F5003E5286 /* LibraryVC.m */,
+				CE5FF3231D76C5F5003E5286 /* LibraryVC.mm */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -385,6 +429,7 @@
 		CE5FF2FB1D76B8BD003E5286 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				CEA995211D77C0E400E852A7 /* MJRefresh */,
 				CE5FF33F1D76E208003E5286 /* JSExtension */,
 				CE5FF3571D76E208003E5286 /* S&EHUD */,
 				CE5FF3621D76E208003E5286 /* SDWebImage */,
@@ -563,6 +608,75 @@
 			path = SDWebImage;
 			sourceTree = "<group>";
 		};
+		CEA995211D77C0E400E852A7 /* MJRefresh */ = {
+			isa = PBXGroup;
+			children = (
+				CEA995221D77C0E400E852A7 /* MJRefresh.bundle */,
+				CEA995231D77C0E400E852A7 /* MJRefresh.h */,
+				CEA995241D77C0E400E852A7 /* MJRefreshBaseView.h */,
+				CEA995251D77C0E400E852A7 /* MJRefreshBaseView.m */,
+				CEA995261D77C0E400E852A7 /* MJRefreshConst.h */,
+				CEA995271D77C0E400E852A7 /* MJRefreshConst.m */,
+				CEA995281D77C0E400E852A7 /* MJRefreshFooterView.h */,
+				CEA995291D77C0E400E852A7 /* MJRefreshFooterView.m */,
+				CEA9952A1D77C0E400E852A7 /* MJRefreshHeaderView.h */,
+				CEA9952B1D77C0E400E852A7 /* MJRefreshHeaderView.m */,
+				CEA9952C1D77C0E400E852A7 /* UIScrollView+MJExtension.h */,
+				CEA9952D1D77C0E400E852A7 /* UIScrollView+MJExtension.m */,
+				CEA9952E1D77C0E400E852A7 /* UIScrollView+MJRefresh.h */,
+				CEA9952F1D77C0E400E852A7 /* UIScrollView+MJRefresh.m */,
+				CEA995301D77C0E400E852A7 /* UIView+MJExtension.h */,
+				CEA995311D77C0E400E852A7 /* UIView+MJExtension.m */,
+			);
+			path = MJRefresh;
+			sourceTree = "<group>";
+		};
+		CEA9953A1D77C81100E852A7 /* BookInfo */ = {
+			isa = PBXGroup;
+			children = (
+				CEA995411D77D26300E852A7 /* Controller */,
+				CEA9953C1D77C81100E852A7 /* Model */,
+				CEA9953D1D77C81100E852A7 /* View */,
+			);
+			path = BookInfo;
+			sourceTree = "<group>";
+		};
+		CEA9953C1D77C81100E852A7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CEA9954B1D78264C00E852A7 /* E_Paging.h */,
+				CEA9954C1D78264C00E852A7 /* E_Paging.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CEA9953D1D77C81100E852A7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CEA995411D77D26300E852A7 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				CEA995471D77F49500E852A7 /* 阅读器控制器 */,
+				CEA995421D77D27500E852A7 /* BookIntroduceVC.h */,
+				CEA995431D77D27500E852A7 /* BookIntroduceVC.m */,
+				CEA995441D77D27500E852A7 /* BookIntroduceVC.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		CEA995471D77F49500E852A7 /* 阅读器控制器 */ = {
+			isa = PBXGroup;
+			children = (
+				CEA995481D77F4B100E852A7 /* ReadingVC.h */,
+				CEA995491D77F4B100E852A7 /* ReadingVC.m */,
+			);
+			name = "阅读器控制器";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -620,8 +734,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEA995201D77B85D00E852A7 /* BookListCell.xib in Resources */,
 				CE5FF2E51D76B71D003E5286 /* LaunchScreen.storyboard in Resources */,
 				CE5FF2E21D76B71D003E5286 /* Assets.xcassets in Resources */,
+				CEA995461D77D27500E852A7 /* BookIntroduceVC.xib in Resources */,
+				CEA995321D77C0E400E852A7 /* MJRefresh.bundle in Resources */,
 				CE5FF3921D76E208003E5286 /* KVNProgressView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -633,11 +750,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEA9951F1D77B85D00E852A7 /* BookListCell.m in Sources */,
 				CE5FF3A01D76E208003E5286 /* UIImageView+HighlightedWebCache.m in Sources */,
 				CE5FF3131D76B8BD003E5286 /* AFHTTPRequestOperation.m in Sources */,
 				CE5FF2DD1D76B71D003E5286 /* ViewController.m in Sources */,
 				CE5FF38C1D76E208003E5286 /* NSObject+JSCoding.m in Sources */,
 				CE5FF38B1D76E208003E5286 /* JSTypeEncoding.m in Sources */,
+				CEA995361D77C0E400E852A7 /* MJRefreshHeaderView.m in Sources */,
+				CEA995331D77C0E400E852A7 /* MJRefreshBaseView.m in Sources */,
 				CE5FF33A1D76DB53003E5286 /* UIView+Extension.m in Sources */,
 				CE5FF3141D76B8BD003E5286 /* AFHTTPRequestOperationManager.m in Sources */,
 				CE5FF3901D76E208003E5286 /* UIImage+KVNImageEffects.m in Sources */,
@@ -649,25 +769,31 @@
 				CE5FF39A1D76E208003E5286 /* SDWebImageManager.m in Sources */,
 				CE5FF3A11D76E208003E5286 /* UIImageView+WebCache.m in Sources */,
 				CE5FF3871D76E208003E5286 /* JSIvar.m in Sources */,
+				CEA995351D77C0E400E852A7 /* MJRefreshFooterView.m in Sources */,
 				CE5FF3171D76B8BD003E5286 /* AFSecurityPolicy.m in Sources */,
 				CE5FF3301D76C65D003E5286 /* UINavigationItem+extison.m in Sources */,
+				CEA995341D77C0E400E852A7 /* MJRefreshConst.m in Sources */,
 				CE5FF3931D76E208003E5286 /* MKAnnotationView+WebCache.m in Sources */,
 				CE5FF3941D76E208003E5286 /* NSData+ImageContentType.m in Sources */,
 				CE5FF3911D76E208003E5286 /* KVNProgress.m in Sources */,
+				CEA9954A1D77F4B100E852A7 /* ReadingVC.m in Sources */,
 				CE5FF31E1D76C5AD003E5286 /* BookCateGoryVC.m in Sources */,
 				CE5FF3151D76B8BD003E5286 /* AFHTTPSessionManager.m in Sources */,
 				CE5FF38D1D76E208003E5286 /* NSObject+JSKeyValue.m in Sources */,
 				CE5FF3191D76B8BD003E5286 /* AFURLRequestSerialization.m in Sources */,
 				CE5FF3991D76E208003E5286 /* SDWebImageDownloaderOperation.m in Sources */,
+				CEA995391D77C0E400E852A7 /* UIView+MJExtension.m in Sources */,
 				CE5FF3851D76E208003E5286 /* JSConst.m in Sources */,
 				CE5FF38A1D76E208003E5286 /* JSType.m in Sources */,
 				CE5FF31B1D76B8BD003E5286 /* AFURLSessionManager.m in Sources */,
+				CEA995381D77C0E400E852A7 /* UIScrollView+MJRefresh.m in Sources */,
 				CE5FF39F1D76E208003E5286 /* UIImage+WebP.m in Sources */,
 				CE5FF3981D76E208003E5286 /* SDWebImageDownloader.m in Sources */,
 				CE5FF3341D76C65D003E5286 /* SFKTabBarVC.m in Sources */,
 				CE5FF38F1D76E208003E5286 /* UIImage+KVNEmpty.m in Sources */,
 				CE5FF3861D76E208003E5286 /* JSFoundation.m in Sources */,
 				B59B32501D7730F900ED5AA0 /* BookModel.m in Sources */,
+				CEA9954D1D78264C00E852A7 /* E_Paging.m in Sources */,
 				CE5FF39E1D76E208003E5286 /* UIImage+MultiFormat.m in Sources */,
 				CE5FF3971D76E208003E5286 /* SDWebImageDecoder.m in Sources */,
 				CE5FF3321D76C65D003E5286 /* JYShotGestureRecognizer.m in Sources */,
@@ -678,14 +804,16 @@
 				CE5FF3881D76E208003E5286 /* JSMember.m in Sources */,
 				CE5FF39B1D76E208003E5286 /* SDWebImagePrefetcher.m in Sources */,
 				CE5FF3A21D76E208003E5286 /* UIView+WebCacheOperation.m in Sources */,
+				CEA995371D77C0E400E852A7 /* UIScrollView+MJExtension.m in Sources */,
 				CE5FF3311D76C65D003E5286 /* UIView+Snapshot.m in Sources */,
 				B59B324D1D772B5800ED5AA0 /* BooksListVC.m in Sources */,
 				CE5FF2DA1D76B71D003E5286 /* AppDelegate.m in Sources */,
-				CE5FF3241D76C5F5003E5286 /* LibraryVC.m in Sources */,
+				CE5FF3241D76C5F5003E5286 /* LibraryVC.mm in Sources */,
 				CE5FF39D1D76E208003E5286 /* UIImage+GIF.m in Sources */,
 				CE5FF2D71D76B71D003E5286 /* main.m in Sources */,
 				CE5FF38E1D76E208003E5286 /* NSObject+JSMember.m in Sources */,
 				CE5FF3841D76E208003E5286 /* JSArgument.m in Sources */,
+				CEA995451D77D27500E852A7 /* BookIntroduceVC.m in Sources */,
 				CE5FF3961D76E208003E5286 /* SDWebImageCompat.m in Sources */,
 				CE5FF3951D76E208003E5286 /* SDImageCache.m in Sources */,
 			);
@@ -791,6 +919,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				GCC_PREFIX_HEADER = JYReading/PrefixHeader.pch;
 				INFOPLIST_FILE = JYReading/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -803,6 +932,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				GCC_PREFIX_HEADER = JYReading/PrefixHeader.pch;
 				INFOPLIST_FILE = JYReading/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

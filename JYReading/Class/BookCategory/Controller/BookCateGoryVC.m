@@ -72,6 +72,7 @@
     BooksListVC *vc = [[BooksListVC alloc]init];
     CateModel *model = self.dataList[indexPath.row];
     vc.typeId = model.id;
+    vc.title = model.name;
     [self.navigationController pushViewController:vc animated:YES];
 }
 

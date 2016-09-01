@@ -24,13 +24,13 @@
    //1.初始化子控制器
     
     LibraryVC *home = [[LibraryVC alloc] init];
-    [self addChildVc:home title:@"书架" image:@"home" selectedImage:@"home"];
+    [self addChildVc:home title:@"书架" image:@"home" selectedImage:@"home_high"];
     
     BookCateGoryVC *upMana = [[BookCateGoryVC alloc] init];
-    [self addChildVc:upMana title:@"分类" image:@"catalog" selectedImage:@"catalog"];
+    [self addChildVc:upMana title:@"分类" image:@"catalog" selectedImage:@"catalog_high"];
     
     HotBooksVC *courseSche = [[HotBooksVC alloc] init];
-    [self addChildVc:courseSche title:@"热门" image:@"heart" selectedImage:@"heart"];
+    [self addChildVc:courseSche title:@"热门" image:@"heart" selectedImage:@"heart_high"];
     
     //2.设置代理，实现tabBar切换动画效果的方法
     self.delegate=self;

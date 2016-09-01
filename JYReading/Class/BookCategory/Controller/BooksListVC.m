@@ -8,6 +8,8 @@
 
 #import "BooksListVC.h"
 #import "BookModel.h"
+#import "BookListCell.h"
+#import "BookIntroduceVC.h"
 @interface BooksListVC ()
 
 @property(nonatomic,assign)NSInteger indexPage;
@@ -20,8 +22,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.indexPage = 0;
-    [self getBookList];
+    
+    [self.tableView registerNib:[UINib nibWithNibName:@"BookListCell" bundle:nil] forCellReuseIdentifier:@"BookListCell"];
+    
+    self.indexPage = 1;
+    
+    UIView *footer = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 10)];
+    [self.tableView setTableFooterView:footer];
+    
+    [self setupUpRefresh];
+    [self setupDownRefresh];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -31,7 +41,30 @@
 }
 
 
--(void)getBookList
+//上拉加载更多
+- (void)setupUpRefresh
+{
+    [self.tableView addFooterWithTarget:self action:@selector(footerRereshing)];
+    
+    self.tableView.footerPullToRefreshText = @"上拉加载更多";
+    self.tableView.footerReleaseToRefreshText = @"松开立即加载";
+    self.tableView.footerRefreshingText = @"正在拼命加载哟，请稍后";
+}
+
+
+//下拉刷新
+- (void)setupDownRefresh
+{
+    [self.tableView addHeaderWithTarget:self action:@selector(headerrefresh)];
+    self.tableView.headerPullToRefreshText = @"下拉加载更多";
+    self.tableView.headerReleaseToRefreshText = @"松开立即刷新";
+    self.tableView.headerRefreshingText = @"正在拼命加载哟，请稍后";
+    
+    // 马上加载数据
+    [self.tableView headerBeginRefreshing];
+}
+
+-(void)headerrefresh
 {
     AFHTTPRequestOperationManager * mgr = [AFHTTPRequestOperationManager manager];
     NSString *url = @"http://route.showapi.com/211-2";
@@ -43,25 +76,54 @@
        dic[@"typeId"] = _typeId;
     }
     
-    [mgr POST:url parameters:dic success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"%@",responseObject);
-        
+    [mgr GET:url parameters:dic success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [self.BookListArray removeAllObjects];
+        JSLog(@"%@",responseObject);
         NSArray *arr = responseObject[@"showapi_res_body"][@"pagebean"][@"contentlist"];
         for(int i = 0;i<arr.count;i++)
         {
             NSDictionary *dic = arr[i];
             BookModel *model = [BookModel initWithDictionary:dic];
-            JSLog(@"%@",model.newchapter);
             [_BookListArray addObject:model];
         }
-
+        [self.tableView headerEndRefreshing];
         [self.tableView reloadData];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"失败");
+        [KVNProgress showErrorWithStatus:@"网络状态异常"];
     }];
 }
 
+
+-(void)footerRereshing
+{
+    AFHTTPRequestOperationManager * mgr = [AFHTTPRequestOperationManager manager];
+    NSString *url = @"http://route.showapi.com/211-2";
+    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+    dic[@"showapi_appid"] = @"23906";
+    dic[@"showapi_sign"] = @"91e731cddb854c9cb61db7f6c4ac7b49";
+    dic[@"page"] = [NSString stringWithFormat:@"%ld",self.indexPage+1];
+    if(self.typeId)
+    {
+        dic[@"typeId"] = _typeId;
+    }
+    
+    [mgr POST:url parameters:dic success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        self.indexPage ++;
+        NSArray *arr = responseObject[@"showapi_res_body"][@"pagebean"][@"contentlist"];
+        for(int i = 0;i<arr.count;i++)
+        {
+            NSDictionary *dic = arr[i];
+            BookModel *model = [BookModel initWithDictionary:dic];
+            [_BookListArray addObject:model];
+        }
+        [self.tableView footerEndRefreshing];
+        [self.tableView reloadData];
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [KVNProgress showErrorWithStatus:@"网络状态异常"];
+    }];
+}
 
 -(NSDictionary *)dictionaryWithJsonString:(NSString *)jsonString {
     if (jsonString == nil) {
@@ -97,24 +159,38 @@
     return self.BookListArray.count;
 }
 
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 100;
+}
+
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     BookModel *model = self.BookListArray[indexPath.row];
-    UITableViewCell *cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"BookCell"];
-    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:[self ImageUrl:model.id]] placeholderImage:[UIImage imageNamed:@"book_cover_default"]];
-    cell.textLabel.text = model.name;
+    BookListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"BookListCell"];
+    cell.model = model;
     return cell;
 }
+
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    BookIntroduceVC *vc = [[BookIntroduceVC alloc]init];
+    BookModel *model = self.BookListArray[indexPath.row];
+    vc.model = model;
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
 
 -(NSString *)ImageUrl:(NSString *)BookId
 {
     NSString *Imageurl;
-    if(BookId.length<6)
+    if(BookId.length<6&&BookId.length>2)
     {
         Imageurl = [NSString stringWithFormat:@"http://www.bxwx8.org/image/%@/%@/%@l.jpg",[BookId substringWithRange:NSMakeRange(0, 2)],BookId,BookId];
     }
-    else
+    else if(BookId.length>=6)
     {
         Imageurl = [NSString stringWithFormat:@"http://www.bxwx8.org/image/%@/%@/%@s.jpg",[BookId substringWithRange:NSMakeRange(0, 3)],BookId,BookId];
     }
@@ -126,7 +202,7 @@
 {
     if(!_BookListArray)
     {
-        _BookListArray = [NSMutableArray array];
+        self.BookListArray = [NSMutableArray array];
     }
     return _BookListArray;
 }

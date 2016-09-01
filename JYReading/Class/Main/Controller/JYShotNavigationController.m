@@ -122,7 +122,7 @@ static const NSString *contentFrameKey  = @"contentFrameKey";
     if(self.viewControllers.count >0)
     {
         viewController.hidesBottomBarWhenPushed = YES;
-        viewController.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(popViewControllerAnimated:) image:@"back" highImage:nil];
+        viewController.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(popViewControllerAnimated:) image:@"topbtn_back" highImage:nil];
     }
     
     // 动画标识，在动画的情况下，禁掉右滑手势
@@ -144,7 +144,7 @@ static const NSString *contentFrameKey  = @"contentFrameKey";
     
     [[NSURLCache sharedURLCache] removeAllCachedResponses];
     
-    return [super popViewControllerAnimated:animated];
+    return [super popViewControllerAnimated:YES];
 }
 
 - (NSArray *)popToViewController:(UIViewController *)viewController animated:(BOOL)animated;

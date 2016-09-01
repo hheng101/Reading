@@ -13,6 +13,7 @@
 @end
 
 @protocol JYShotBackProtocol <NSObject>
+@optional
 - (BOOL)enablePanBack:(JYShotNavigationController *)NavigationController;
 - (void)startPanBack:(JYShotNavigationController *)NavigationController;
 - (void)finshPanBack:(JYShotNavigationController *)NavigationController;

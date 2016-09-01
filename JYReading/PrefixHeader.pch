@@ -49,6 +49,7 @@
 #import "JSExtension.h"
 #import "UIImageView+WebCache.h"
 #import "KVNProgress.h"
+#import "MJRefresh.h"
 #endif
 
 #ifdef DEBUG // 处于开发阶段
