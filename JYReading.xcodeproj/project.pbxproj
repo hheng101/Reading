@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		B59B324D1D772B5800ED5AA0 /* BooksListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B59B324C1D772B5800ED5AA0 /* BooksListVC.m */; };
 		B59B32501D7730F900ED5AA0 /* BookModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B59B324F1D7730F900ED5AA0 /* BookModel.m */; };
+		B5C287931D7884DF00BFC107 /* CharpterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B5C287921D7884DF00BFC107 /* CharpterVC.m */; };
+		B5C287971D7887A700BFC107 /* ChapterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B5C287961D7887A700BFC107 /* ChapterModel.m */; };
 		CE5FF2D71D76B71D003E5286 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5FF2D61D76B71D003E5286 /* main.m */; };
 		CE5FF2DA1D76B71D003E5286 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5FF2D91D76B71D003E5286 /* AppDelegate.m */; };
 		CE5FF2DD1D76B71D003E5286 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5FF2DC1D76B71D003E5286 /* ViewController.m */; };
@@ -86,6 +88,10 @@
 		B59B324C1D772B5800ED5AA0 /* BooksListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BooksListVC.m; sourceTree = "<group>"; };
 		B59B324E1D7730F900ED5AA0 /* BookModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookModel.h; sourceTree = "<group>"; };
 		B59B324F1D7730F900ED5AA0 /* BookModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookModel.m; sourceTree = "<group>"; };
+		B5C287911D7884DF00BFC107 /* CharpterVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CharpterVC.h; sourceTree = "<group>"; };
+		B5C287921D7884DF00BFC107 /* CharpterVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CharpterVC.m; sourceTree = "<group>"; };
+		B5C287951D7887A700BFC107 /* ChapterModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChapterModel.h; sourceTree = "<group>"; };
+		B5C287961D7887A700BFC107 /* ChapterModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChapterModel.m; sourceTree = "<group>"; };
 		CE5FF2D21D76B71D003E5286 /* JYReading.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JYReading.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE5FF2D61D76B71D003E5286 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CE5FF2D81D76B71D003E5286 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ../../../AppDelegate.h; sourceTree = "<group>"; };
@@ -239,6 +245,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B5C287901D7884C000BFC107 /* 章节控制器 */ = {
+			isa = PBXGroup;
+			children = (
+				B5C287911D7884DF00BFC107 /* CharpterVC.h */,
+				B5C287921D7884DF00BFC107 /* CharpterVC.m */,
+			);
+			name = "章节控制器";
+			sourceTree = "<group>";
+		};
+		B5C287941D78878B00BFC107 /* 章节模型 */ = {
+			isa = PBXGroup;
+			children = (
+				B5C287951D7887A700BFC107 /* ChapterModel.h */,
+				B5C287961D7887A700BFC107 /* ChapterModel.m */,
+			);
+			name = "章节模型";
+			sourceTree = "<group>";
+		};
 		CE5FF2C91D76B71D003E5286 = {
 			isa = PBXGroup;
 			children = (
@@ -644,6 +668,7 @@
 		CEA9953C1D77C81100E852A7 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B5C287941D78878B00BFC107 /* 章节模型 */,
 				CEA9954B1D78264C00E852A7 /* E_Paging.h */,
 				CEA9954C1D78264C00E852A7 /* E_Paging.m */,
 			);
@@ -671,6 +696,7 @@
 		CEA995471D77F49500E852A7 /* 阅读器控制器 */ = {
 			isa = PBXGroup;
 			children = (
+				B5C287901D7884C000BFC107 /* 章节控制器 */,
 				CEA995481D77F4B100E852A7 /* ReadingVC.h */,
 				CEA995491D77F4B100E852A7 /* ReadingVC.m */,
 			);
@@ -763,6 +789,7 @@
 				CE5FF3901D76E208003E5286 /* UIImage+KVNImageEffects.m in Sources */,
 				CE5FF3161D76B8BD003E5286 /* AFNetworkReachabilityManager.m in Sources */,
 				CE5FF33E1D76E19C003E5286 /* CateModel.m in Sources */,
+				B5C287971D7887A700BFC107 /* ChapterModel.m in Sources */,
 				CE5FF3331D76C65D003E5286 /* JYShotNavigationController.m in Sources */,
 				CE5FF31A1D76B8BD003E5286 /* AFURLResponseSerialization.m in Sources */,
 				CE5FF3181D76B8BD003E5286 /* AFURLConnectionOperation.m in Sources */,
@@ -796,6 +823,7 @@
 				CEA9954D1D78264C00E852A7 /* E_Paging.m in Sources */,
 				CE5FF39E1D76E208003E5286 /* UIImage+MultiFormat.m in Sources */,
 				CE5FF3971D76E208003E5286 /* SDWebImageDecoder.m in Sources */,
+				B5C287931D7884DF00BFC107 /* CharpterVC.m in Sources */,
 				CE5FF3321D76C65D003E5286 /* JYShotGestureRecognizer.m in Sources */,
 				CE5FF3891D76E208003E5286 /* JSMethod.m in Sources */,
 				CE5FF3391D76DB53003E5286 /* UIBarButtonItem+Extension.m in Sources */,

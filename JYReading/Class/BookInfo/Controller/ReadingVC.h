@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "BookModel.h"
 @interface ReadingVC : UIViewController
 
+@property(nonatomic,strong)BookModel *bookmodel;
 @end

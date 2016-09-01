@@ -76,6 +76,7 @@
 
 - (IBAction)ReadingNow:(id)sender {
     ReadingVC *vc = [[ReadingVC alloc]init];
+    vc.bookmodel = self.model;
     [self.navigationController pushViewController:vc animated:YES];
 }
 
