@@ -11,6 +11,8 @@
 		B59B32501D7730F900ED5AA0 /* BookModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B59B324F1D7730F900ED5AA0 /* BookModel.m */; };
 		B5C287931D7884DF00BFC107 /* CharpterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B5C287921D7884DF00BFC107 /* CharpterVC.m */; };
 		B5C287971D7887A700BFC107 /* ChapterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B5C287961D7887A700BFC107 /* ChapterModel.m */; };
+		CE0243851D79112E00450A5A /* ReadBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0243841D79112E00450A5A /* ReadBottomView.m */; };
+		CE0243871D79115400450A5A /* ReadBottomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE0243861D79115400450A5A /* ReadBottomView.xib */; };
 		CE5FF2D71D76B71D003E5286 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5FF2D61D76B71D003E5286 /* main.m */; };
 		CE5FF2DA1D76B71D003E5286 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5FF2D91D76B71D003E5286 /* AppDelegate.m */; };
 		CE5FF2DD1D76B71D003E5286 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5FF2DC1D76B71D003E5286 /* ViewController.m */; };
@@ -92,6 +94,9 @@
 		B5C287921D7884DF00BFC107 /* CharpterVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CharpterVC.m; sourceTree = "<group>"; };
 		B5C287951D7887A700BFC107 /* ChapterModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChapterModel.h; sourceTree = "<group>"; };
 		B5C287961D7887A700BFC107 /* ChapterModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChapterModel.m; sourceTree = "<group>"; };
+		CE0243831D79112E00450A5A /* ReadBottomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReadBottomView.h; sourceTree = "<group>"; };
+		CE0243841D79112E00450A5A /* ReadBottomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReadBottomView.m; sourceTree = "<group>"; };
+		CE0243861D79115400450A5A /* ReadBottomView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReadBottomView.xib; sourceTree = "<group>"; };
 		CE5FF2D21D76B71D003E5286 /* JYReading.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JYReading.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE5FF2D61D76B71D003E5286 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CE5FF2D81D76B71D003E5286 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ../../../AppDelegate.h; sourceTree = "<group>"; };
@@ -261,6 +266,16 @@
 				B5C287961D7887A700BFC107 /* ChapterModel.m */,
 			);
 			name = "章节模型";
+			sourceTree = "<group>";
+		};
+		CE0243821D7910D500450A5A /* 底部弹出视图 */ = {
+			isa = PBXGroup;
+			children = (
+				CE0243831D79112E00450A5A /* ReadBottomView.h */,
+				CE0243841D79112E00450A5A /* ReadBottomView.m */,
+				CE0243861D79115400450A5A /* ReadBottomView.xib */,
+			);
+			name = "底部弹出视图";
 			sourceTree = "<group>";
 		};
 		CE5FF2C91D76B71D003E5286 = {
@@ -678,6 +693,7 @@
 		CEA9953D1D77C81100E852A7 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				CE0243821D7910D500450A5A /* 底部弹出视图 */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -760,6 +776,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE0243871D79115400450A5A /* ReadBottomView.xib in Resources */,
 				CEA995201D77B85D00E852A7 /* BookListCell.xib in Resources */,
 				CE5FF2E51D76B71D003E5286 /* LaunchScreen.storyboard in Resources */,
 				CE5FF2E21D76B71D003E5286 /* Assets.xcassets in Resources */,
@@ -841,6 +858,7 @@
 				CE5FF2D71D76B71D003E5286 /* main.m in Sources */,
 				CE5FF38E1D76E208003E5286 /* NSObject+JSMember.m in Sources */,
 				CE5FF3841D76E208003E5286 /* JSArgument.m in Sources */,
+				CE0243851D79112E00450A5A /* ReadBottomView.m in Sources */,
 				CEA995451D77D27500E852A7 /* BookIntroduceVC.m in Sources */,
 				CE5FF3961D76E208003E5286 /* SDWebImageCompat.m in Sources */,
 				CE5FF3951D76E208003E5286 /* SDImageCache.m in Sources */,

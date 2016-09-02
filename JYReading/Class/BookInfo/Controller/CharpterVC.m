@@ -7,8 +7,10 @@
 //
 
 #import "CharpterVC.h"
-
+#import "ChapterModel.h"
 @interface CharpterVC ()
+
+@property(nonatomic,strong)NSMutableArray *chaperList;
 
 @end
 
@@ -16,6 +18,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [KVNProgress showWithStatus:@"正在加载.."];
     [self getCharpter];
 }
 
@@ -31,6 +34,11 @@
     
     [mgr POST:url parameters:dic success:^(AFHTTPRequestOperation *operation, id responseObject) {
         JSLog(@"%@",responseObject);
+        NSDictionary *dataDict = responseObject[@"showapi_res_body"][@"book"];
+        NSArray *dataArrr = [ChapterModel objectArrayWithKeyValuesArray:dataDict[@"chapterList"]];
+        [self.chaperList addObjectsFromArray:dataArrr];
+        [KVNProgress dismiss];
+        [self.tableView reloadData];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [KVNProgress showErrorWithStatus:@"网络异常"];
     }];
@@ -48,66 +56,39 @@
 #pragma mark - Table view data source
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 0;
+    return self.chaperList.count;;
 }
 
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSString *ID = @"chapterCell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
+    ChapterModel *model = self.chaperList[indexPath.row];
+    if(!cell)
+    {
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
+        cell.textLabel.textAlignment = NSTextAlignmentCenter;
+        cell.textLabel.font = [UIFont systemFontOfSize:12.f];
+    }
+    cell.textLabel.text = model.name;
     return cell;
 }
-*/
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+
+-(NSMutableArray *)chaperList
+{
+    if(!_chaperList)
+    {
+        _chaperList = [NSMutableArray array];
+    }
+    return _chaperList;
 }
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
 
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
