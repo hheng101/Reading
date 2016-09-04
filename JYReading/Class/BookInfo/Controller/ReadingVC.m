@@ -226,30 +226,30 @@
     scroller.showsHorizontalScrollIndicator = NO;
     scroller.contentSize = CGSizeMake(SCREEN_WIDTH * (self.pageManager.pageCount+1), self.view.bounds.size.height);
     
-    for(int i = 0;i<(self.pageManager.pageCount+2);i++)
+    for(int i = 0;i<(self.pageManager.pageCount+1);i++)
         
     {
         UILabel *textLabel = [[UILabel alloc]initWithFrame:CGRectMake(SCREEN_WIDTH*i+10, 20, SCREEN_WIDTH-20, SCREEN_HEIGHT-30)];
         textLabel.textColor = JSColor(82, 82, 82);
         textLabel.font = [UIFont systemFontOfSize:14.f];
         textLabel.numberOfLines = 0;
-        if(i==0)
-        {
-            if(self.cacheBeforeArray.count>0)
-            {
-                textLabel.text = self.cacheBeforeArray[self.cacheBeforeArray.count-1];
-            }
-            else
-            {
-                textLabel.text = @"\t很抱歉由于网络问题未能获取到该章节，请重试！请重试！请重试！";
-            }
-            self.cacheBeforeLabel = textLabel;
-        }
-        else if(i<self.pageManager.pageCount+1)
+//        if(i==0)
+//        {
+//            if(self.cacheBeforeArray.count>0)
+//            {
+//                textLabel.text = self.cacheBeforeArray[self.cacheBeforeArray.count-1];
+//            }
+//            else
+//            {
+//                textLabel.text = @"\t很抱歉由于网络问题未能获取到该章节，请重试！请重试！请重试！";
+//            }
+//            self.cacheBeforeLabel = textLabel;
+//        }
+        if(i<self.pageManager.pageCount)
         {
             textLabel.text = [self.pageManager stringOfPage:i%_pageManager.pageCount];
         }
-        else if(i==self.pageManager.pageCount+1)
+        else if(i==self.pageManager.pageCount)
         {
             textLabel.text = @"\t很抱歉由于网络问题未能获取到该章节，请重试！请重试！请重试！";
             self.cacheNextLabel = textLabel;
@@ -268,7 +268,7 @@
     self.lastX = SCREEN_WIDTH;
     
     //从一开始显示
-    [scroller setContentOffset:CGPointMake(SCREEN_WIDTH, 0)];
+    [scroller setContentOffset:CGPointMake(0, 0)];
     [self.view addSubview:scroller];
     self.MainScroller = scroller;
     self.MainScroller.delegate = self;
@@ -301,19 +301,19 @@
         }
         [self setscorller];
     }
-    else if(scrollView.contentOffset.x == 0)
-    {
-        self.currentChapterIndex-=1;
-        [self.MainScroller removeFromSuperview];
-        self.cacheNextArray = [self.textArray copy];
-        self.textArray = nil;
-        self.textArray = [NSMutableArray array];
-        for(int i=0;i<self.cacheBeforeArray.count;i++)
-        {
-            [self.textArray addObject:self.cacheNextArray[i]];
-        }
-        [self setscorller];
-    }
+//    else if(scrollView.contentOffset.x == 0)
+//    {
+//        self.currentChapterIndex-=1;
+//        [self.MainScroller removeFromSuperview];
+//        self.cacheNextArray = [self.textArray copy];
+//        self.textArray = nil;
+//        self.textArray = [NSMutableArray array];
+//        for(int i=0;i<self.cacheBeforeArray.count;i++)
+//        {
+//            [self.textArray addObject:self.cacheNextArray[i]];
+//        }
+//        [self setscorller];
+//    }
 }
 
 
