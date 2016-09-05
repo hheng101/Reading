@@ -13,6 +13,14 @@
 		B5C287971D7887A700BFC107 /* ChapterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B5C287961D7887A700BFC107 /* ChapterModel.m */; };
 		CE0243851D79112E00450A5A /* ReadBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0243841D79112E00450A5A /* ReadBottomView.m */; };
 		CE0243871D79115400450A5A /* ReadBottomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE0243861D79115400450A5A /* ReadBottomView.xib */; };
+		CE3946051D7D62BC00DC8BC1 /* LibraryVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3946041D7D62BC00DC8BC1 /* LibraryVC.m */; };
+		CE3946071D7D633700DC8BC1 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CE3946061D7D633700DC8BC1 /* libsqlite3.0.tbd */; };
+		CE3946141D7D636200DC8BC1 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = CE39460A1D7D636200DC8BC1 /* FMDatabase.m */; };
+		CE3946151D7D636200DC8BC1 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = CE39460C1D7D636200DC8BC1 /* FMDatabaseAdditions.m */; };
+		CE3946161D7D636200DC8BC1 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = CE39460E1D7D636200DC8BC1 /* FMDatabasePool.m */; };
+		CE3946171D7D636200DC8BC1 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3946101D7D636200DC8BC1 /* FMDatabaseQueue.m */; };
+		CE3946181D7D636200DC8BC1 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3946131D7D636200DC8BC1 /* FMResultSet.m */; };
+		CE39461C1D7D6FA300DC8BC1 /* BookSearchVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CE39461B1D7D6FA300DC8BC1 /* BookSearchVC.m */; };
 		CE5FF2D71D76B71D003E5286 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5FF2D61D76B71D003E5286 /* main.m */; };
 		CE5FF2DA1D76B71D003E5286 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5FF2D91D76B71D003E5286 /* AppDelegate.m */; };
 		CE5FF2DD1D76B71D003E5286 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5FF2DC1D76B71D003E5286 /* ViewController.m */; };
@@ -29,7 +37,6 @@
 		CE5FF31B1D76B8BD003E5286 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5FF30F1D76B8BD003E5286 /* AFURLSessionManager.m */; };
 		CE5FF31E1D76C5AD003E5286 /* BookCateGoryVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5FF31D1D76C5AD003E5286 /* BookCateGoryVC.m */; };
 		CE5FF3211D76C5E8003E5286 /* HotBooksVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5FF3201D76C5E8003E5286 /* HotBooksVC.m */; };
-		CE5FF3241D76C5F5003E5286 /* LibraryVC.mm in Sources */ = {isa = PBXBuildFile; fileRef = CE5FF3231D76C5F5003E5286 /* LibraryVC.mm */; };
 		CE5FF3301D76C65D003E5286 /* UINavigationItem+extison.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5FF3271D76C65D003E5286 /* UINavigationItem+extison.m */; };
 		CE5FF3311D76C65D003E5286 /* UIView+Snapshot.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5FF3291D76C65D003E5286 /* UIView+Snapshot.m */; };
 		CE5FF3321D76C65D003E5286 /* JYShotGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5FF32B1D76C65D003E5286 /* JYShotGestureRecognizer.m */; };
@@ -97,6 +104,22 @@
 		CE0243831D79112E00450A5A /* ReadBottomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReadBottomView.h; sourceTree = "<group>"; };
 		CE0243841D79112E00450A5A /* ReadBottomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReadBottomView.m; sourceTree = "<group>"; };
 		CE0243861D79115400450A5A /* ReadBottomView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReadBottomView.xib; sourceTree = "<group>"; };
+		CE3946031D7D62BC00DC8BC1 /* LibraryVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LibraryVC.h; sourceTree = "<group>"; };
+		CE3946041D7D62BC00DC8BC1 /* LibraryVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LibraryVC.m; sourceTree = "<group>"; };
+		CE3946061D7D633700DC8BC1 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		CE3946091D7D636200DC8BC1 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
+		CE39460A1D7D636200DC8BC1 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
+		CE39460B1D7D636200DC8BC1 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		CE39460C1D7D636200DC8BC1 /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		CE39460D1D7D636200DC8BC1 /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabasePool.h; sourceTree = "<group>"; };
+		CE39460E1D7D636200DC8BC1 /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
+		CE39460F1D7D636200DC8BC1 /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseQueue.h; sourceTree = "<group>"; };
+		CE3946101D7D636200DC8BC1 /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
+		CE3946111D7D636200DC8BC1 /* FMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDB.h; sourceTree = "<group>"; };
+		CE3946121D7D636200DC8BC1 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
+		CE3946131D7D636200DC8BC1 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
+		CE39461A1D7D6FA300DC8BC1 /* BookSearchVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookSearchVC.h; sourceTree = "<group>"; };
+		CE39461B1D7D6FA300DC8BC1 /* BookSearchVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookSearchVC.m; sourceTree = "<group>"; };
 		CE5FF2D21D76B71D003E5286 /* JYReading.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JYReading.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE5FF2D61D76B71D003E5286 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CE5FF2D81D76B71D003E5286 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ../../../AppDelegate.h; sourceTree = "<group>"; };
@@ -129,8 +152,6 @@
 		CE5FF31D1D76C5AD003E5286 /* BookCateGoryVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookCateGoryVC.m; sourceTree = "<group>"; };
 		CE5FF31F1D76C5E8003E5286 /* HotBooksVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotBooksVC.h; sourceTree = "<group>"; };
 		CE5FF3201D76C5E8003E5286 /* HotBooksVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotBooksVC.m; sourceTree = "<group>"; };
-		CE5FF3221D76C5F5003E5286 /* LibraryVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LibraryVC.h; sourceTree = "<group>"; };
-		CE5FF3231D76C5F5003E5286 /* LibraryVC.mm */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.objc; fileEncoding = 4; path = LibraryVC.mm; sourceTree = "<group>"; };
 		CE5FF3261D76C65D003E5286 /* UINavigationItem+extison.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationItem+extison.h"; sourceTree = "<group>"; };
 		CE5FF3271D76C65D003E5286 /* UINavigationItem+extison.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationItem+extison.m"; sourceTree = "<group>"; };
 		CE5FF3281D76C65D003E5286 /* UIView+Snapshot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Snapshot.h"; sourceTree = "<group>"; };
@@ -244,6 +265,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE3946071D7D633700DC8BC1 /* libsqlite3.0.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,9 +300,37 @@
 			name = "底部弹出视图";
 			sourceTree = "<group>";
 		};
+		CE3946081D7D636200DC8BC1 /* fmdb */ = {
+			isa = PBXGroup;
+			children = (
+				CE3946091D7D636200DC8BC1 /* FMDatabase.h */,
+				CE39460A1D7D636200DC8BC1 /* FMDatabase.m */,
+				CE39460B1D7D636200DC8BC1 /* FMDatabaseAdditions.h */,
+				CE39460C1D7D636200DC8BC1 /* FMDatabaseAdditions.m */,
+				CE39460D1D7D636200DC8BC1 /* FMDatabasePool.h */,
+				CE39460E1D7D636200DC8BC1 /* FMDatabasePool.m */,
+				CE39460F1D7D636200DC8BC1 /* FMDatabaseQueue.h */,
+				CE3946101D7D636200DC8BC1 /* FMDatabaseQueue.m */,
+				CE3946111D7D636200DC8BC1 /* FMDB.h */,
+				CE3946121D7D636200DC8BC1 /* FMResultSet.h */,
+				CE3946131D7D636200DC8BC1 /* FMResultSet.m */,
+			);
+			path = fmdb;
+			sourceTree = "<group>";
+		};
+		CE3946191D7D6F6800DC8BC1 /* 搜索图书 */ = {
+			isa = PBXGroup;
+			children = (
+				CE39461A1D7D6FA300DC8BC1 /* BookSearchVC.h */,
+				CE39461B1D7D6FA300DC8BC1 /* BookSearchVC.m */,
+			);
+			name = "搜索图书";
+			sourceTree = "<group>";
+		};
 		CE5FF2C91D76B71D003E5286 = {
 			isa = PBXGroup;
 			children = (
+				CE3946061D7D633700DC8BC1 /* libsqlite3.0.tbd */,
 				CE5FF2D41D76B71D003E5286 /* JYReading */,
 				CE5FF2D31D76B71D003E5286 /* Products */,
 			);
@@ -384,6 +434,7 @@
 		CE5FF2F21D76B8BD003E5286 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				CE3946191D7D6F6800DC8BC1 /* 搜索图书 */,
 				CE5FF31F1D76C5E8003E5286 /* HotBooksVC.h */,
 				CE5FF3201D76C5E8003E5286 /* HotBooksVC.m */,
 			);
@@ -417,8 +468,8 @@
 		CE5FF2F61D76B8BD003E5286 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				CE5FF3221D76C5F5003E5286 /* LibraryVC.h */,
-				CE5FF3231D76C5F5003E5286 /* LibraryVC.mm */,
+				CE3946031D7D62BC00DC8BC1 /* LibraryVC.h */,
+				CE3946041D7D62BC00DC8BC1 /* LibraryVC.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -468,6 +519,7 @@
 		CE5FF2FB1D76B8BD003E5286 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				CE3946081D7D636200DC8BC1 /* fmdb */,
 				CEA995211D77C0E400E852A7 /* MJRefresh */,
 				CE5FF33F1D76E208003E5286 /* JSExtension */,
 				CE5FF3571D76E208003E5286 /* S&EHUD */,
@@ -796,6 +848,7 @@
 				CEA9951F1D77B85D00E852A7 /* BookListCell.m in Sources */,
 				CE5FF3A01D76E208003E5286 /* UIImageView+HighlightedWebCache.m in Sources */,
 				CE5FF3131D76B8BD003E5286 /* AFHTTPRequestOperation.m in Sources */,
+				CE3946141D7D636200DC8BC1 /* FMDatabase.m in Sources */,
 				CE5FF2DD1D76B71D003E5286 /* ViewController.m in Sources */,
 				CE5FF38C1D76E208003E5286 /* NSObject+JSCoding.m in Sources */,
 				CE5FF38B1D76E208003E5286 /* JSTypeEncoding.m in Sources */,
@@ -805,12 +858,14 @@
 				CE5FF3141D76B8BD003E5286 /* AFHTTPRequestOperationManager.m in Sources */,
 				CE5FF3901D76E208003E5286 /* UIImage+KVNImageEffects.m in Sources */,
 				CE5FF3161D76B8BD003E5286 /* AFNetworkReachabilityManager.m in Sources */,
+				CE3946161D7D636200DC8BC1 /* FMDatabasePool.m in Sources */,
 				CE5FF33E1D76E19C003E5286 /* CateModel.m in Sources */,
 				B5C287971D7887A700BFC107 /* ChapterModel.m in Sources */,
 				CE5FF3331D76C65D003E5286 /* JYShotNavigationController.m in Sources */,
 				CE5FF31A1D76B8BD003E5286 /* AFURLResponseSerialization.m in Sources */,
 				CE5FF3181D76B8BD003E5286 /* AFURLConnectionOperation.m in Sources */,
 				CE5FF39A1D76E208003E5286 /* SDWebImageManager.m in Sources */,
+				CE3946051D7D62BC00DC8BC1 /* LibraryVC.m in Sources */,
 				CE5FF3A11D76E208003E5286 /* UIImageView+WebCache.m in Sources */,
 				CE5FF3871D76E208003E5286 /* JSIvar.m in Sources */,
 				CEA995351D77C0E400E852A7 /* MJRefreshFooterView.m in Sources */,
@@ -835,6 +890,7 @@
 				CE5FF3981D76E208003E5286 /* SDWebImageDownloader.m in Sources */,
 				CE5FF3341D76C65D003E5286 /* SFKTabBarVC.m in Sources */,
 				CE5FF38F1D76E208003E5286 /* UIImage+KVNEmpty.m in Sources */,
+				CE3946151D7D636200DC8BC1 /* FMDatabaseAdditions.m in Sources */,
 				CE5FF3861D76E208003E5286 /* JSFoundation.m in Sources */,
 				B59B32501D7730F900ED5AA0 /* BookModel.m in Sources */,
 				CEA9954D1D78264C00E852A7 /* E_Paging.m in Sources */,
@@ -843,6 +899,8 @@
 				B5C287931D7884DF00BFC107 /* CharpterVC.m in Sources */,
 				CE5FF3321D76C65D003E5286 /* JYShotGestureRecognizer.m in Sources */,
 				CE5FF3891D76E208003E5286 /* JSMethod.m in Sources */,
+				CE3946181D7D636200DC8BC1 /* FMResultSet.m in Sources */,
+				CE3946171D7D636200DC8BC1 /* FMDatabaseQueue.m in Sources */,
 				CE5FF3391D76DB53003E5286 /* UIBarButtonItem+Extension.m in Sources */,
 				CE5FF3211D76C5E8003E5286 /* HotBooksVC.m in Sources */,
 				CE5FF39C1D76E208003E5286 /* UIButton+WebCache.m in Sources */,
@@ -853,8 +911,8 @@
 				CE5FF3311D76C65D003E5286 /* UIView+Snapshot.m in Sources */,
 				B59B324D1D772B5800ED5AA0 /* BooksListVC.m in Sources */,
 				CE5FF2DA1D76B71D003E5286 /* AppDelegate.m in Sources */,
-				CE5FF3241D76C5F5003E5286 /* LibraryVC.mm in Sources */,
 				CE5FF39D1D76E208003E5286 /* UIImage+GIF.m in Sources */,
+				CE39461C1D7D6FA300DC8BC1 /* BookSearchVC.m in Sources */,
 				CE5FF2D71D76B71D003E5286 /* main.m in Sources */,
 				CE5FF38E1D76E208003E5286 /* NSObject+JSMember.m in Sources */,
 				CE5FF3841D76E208003E5286 /* JSArgument.m in Sources */,

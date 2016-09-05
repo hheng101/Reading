@@ -8,6 +8,7 @@
 
 #import "BookIntroduceVC.h"
 #import "ReadingVC.h"
+#import "FMDB.h"
 @interface BookIntroduceVC ()
 @property (weak, nonatomic) IBOutlet UIImageView *MainImage;
 
@@ -71,6 +72,50 @@
 }
 
 - (IBAction)addtoBookStair:(id)sender {
+        //打开数据库
+    
+    
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    
+        NSString *documentDirectory = [paths objectAtIndex:0];
+    
+        NSString *dbPath = [documentDirectory stringByAppendingPathComponent:@"MyDatabase.db"];
+    
+        FMDatabase
+    
+        *db = [FMDatabase databaseWithPath:dbPath] ;
+    
+        if (![db open]) {
+    
+            [KVNProgress showErrorWithStatus:@"数据库打开失败"];
+    
+            return ;
+    
+        }
+        if ([db open]) {
+            NSString *sqlCreateTable =  [NSString stringWithFormat:@"CREATE TABLE IF NOT EXISTS 'BookTable' ('id' INTEGER PRIMARY KEY AUTOINCREMENT, 'bookid' TEXT, 'author' TEXT, 'name' TEXT, 'newchapter' TEXT, 'size' TEXT, 'type' TEXT, 'typeName' TEXT, 'updateTime' TEXT, 'imageurl' TEXT)"];
+            BOOL res = [db executeUpdate:sqlCreateTable];
+            if (!res) {
+                NSLog(@"error when creating db table");
+            } else {
+                NSLog(@"success to creating db table");
+            }
+            [db close];
+    
+        }
+    
+        if ([db open]) {
+            NSString *insertSql1= [NSString stringWithFormat:
+                                   @"INSERT INTO 'BookTable' ('bookid', 'author', 'name', 'newchapter', 'size', 'type', 'typeName', 'updateTime', 'imageurl') VALUES ('%@', '%@', '%@', '%@', '%@', '%@', '%@', '%@', '%@')", _model.id, _model.author, _model.name, _model.newchapter, _model.size, _model.type, _model.typeName, _model.updateTime, [self ImageUrl:_model.id]];
+            BOOL res = [db executeUpdate:insertSql1];
+            if (!res) {
+                NSLog(@"error when insert db table");
+            } else {
+                [KVNProgress showSuccessWithStatus:@"加入书架成功！"];
+            }
+            [db close];
+            
+        }
 }
 
 

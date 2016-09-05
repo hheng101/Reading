@@ -1,5 +1,5 @@
 //
-//  LibraryVC.h
+//  BookSearchVC.h
 //  JYReading
 //
 //  Created by 俞洋 on 16/9/5.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LibraryVC : UIViewController
+@interface BookSearchVC : UITableViewController
 
 @end

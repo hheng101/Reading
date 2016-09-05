@@ -2,7 +2,7 @@
 //  LibraryVC.m
 //  JYReading
 //
-//  Created by 俞洋 on 16/8/31.
+//  Created by 俞洋 on 16/9/5.
 //  Copyright © 2016年 Journey. All rights reserved.
 //
 
@@ -16,7 +16,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor whiteColor];
     // Do any additional setup after loading the view.
 }
 

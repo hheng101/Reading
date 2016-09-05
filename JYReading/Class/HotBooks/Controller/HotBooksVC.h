@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HotBooksVC : UIViewController
+@interface HotBooksVC : UITableViewController
 
 @end

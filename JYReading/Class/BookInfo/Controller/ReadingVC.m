@@ -41,10 +41,10 @@
 @property(nonatomic,strong)NSMutableArray *ChaptersRepeatArray;
 //缓存下一章
 @property(nonatomic,strong)NSString *cacheNextText;
-//下一章缓存状态
-@property(nonatomic,assign)BOOL isCacheNext;
 //缓存上一章
 @property(nonatomic,strong)NSString *cacheBeforeText;
+//下一章缓存状态
+@property(nonatomic,assign)BOOL isCacheNext;
 //上一章缓存状态
 @property(nonatomic,assign)BOOL isCacheBefore;
 //是否获取下一章节
@@ -53,6 +53,8 @@
 @property(nonatomic,strong)NSMutableArray *cacheNextArray;
 //上一章缓存数组
 @property(nonatomic,strong)NSMutableArray *cacheBeforeArray;
+//当前状态
+@property(nonatomic,assign)BOOL isNext;
 @property(nonatomic,strong)UILabel *cacheNextLabel;
 
 @property(nonatomic,strong)UILabel *cacheBeforeLabel;
@@ -66,6 +68,11 @@
     return NO;
 }
 
+-(void)viewWillDisappear:(BOOL)animated
+{
+    self.navigationController.navigationBar.hidden = NO;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
@@ -75,7 +82,8 @@
     self.backImage = imView;
     self.textArray = [NSMutableArray array];
     self.navigationController.navigationBar.hidden = YES;
-    self.currentPage = 0;
+    self.currentChapterIndex = 0;
+    self.isNext = YES;
     
     
     [KVNProgress showWithStatus:@"正在加载章节.."];
@@ -97,6 +105,7 @@
         NSArray *arr = [ChapterModel objectArrayWithKeyValuesArray:dataDict[@"chapterList"]];
         self.ChapterArray = [NSMutableArray arrayWithArray:arr];
         //第一次进来取第一章
+        
         ChapterModel *chapterModel= self.ChapterArray[0];
         self.currentChapterIndex = 0;
         self.currentCharpterModel = chapterModel;
@@ -137,11 +146,58 @@
 
 
 //获取上一章
+-(void)getBeforeChapter
+{
+    if(self.currentChapterIndex == 0)
+    {
+        return;
+    }
+    AFHTTPRequestOperationManager * mgr = [AFHTTPRequestOperationManager manager];
+    ChapterModel *model = self.ChapterArray[self.currentChapterIndex-1];
+    NSString *url = @"http://route.showapi.com/211-4";
+    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+    dic[@"showapi_appid"] = @"23906";
+    dic[@"showapi_sign"] = @"91e731cddb854c9cb61db7f6c4ac7b49";
+    dic[@"bookId"] = self.bookmodel.id;
+    dic[@"cid"] = model.cid;
+    [mgr POST:url parameters:dic success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        JSLog(@"%@",responseObject);
+        NSDictionary *dic = responseObject[@"showapi_res_body"];
+        self.cacheBeforeText = dic[@"txt"];
+        
+        //[KVNProgress dismiss];
+        NSMutableString *strcache = [NSMutableString stringWithString:self.cacheBeforeText];
+        NSMutableString *str = [NSMutableString stringWithFormat:@"\t%@",strcache];
+        [str replaceOccurrencesOfString:@"<br /><br />" withString:@"\n\t" options:NSCaseInsensitiveSearch range:NSMakeRange(0, str.length)];
+        self.pageManager = [[E_Paging alloc]init];
+        self.pageManager.contentText = str;
+        self.pageManager.contentFont = 14;
+        self.pageManager.textRenderSize = CGSizeMake(SCREEN_WIDTH, SCREEN_HEIGHT-170);
+        [self.pageManager paginate];
+        self.cacheBeforeArray = nil;
+        self.cacheBeforeArray = [NSMutableArray array];
+        for(int i=0;i<self.pageManager.pageCount;i++)
+        {
+            [self.cacheBeforeArray addObject:[self.pageManager stringOfPage:i]];
+        }
+        self.cacheBeforeLabel.text = self.cacheBeforeArray[self.cacheBeforeArray.count-1];
+        NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc]initWithString:self.cacheBeforeLabel.text];
+        NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc]init];
+        [paragraphStyle setLineSpacing:10];//行距的大小
+        [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, self.cacheBeforeLabel.text.length)];
+        self.cacheBeforeLabel.attributedText = attributedString;
+        [self.cacheBeforeLabel sizeToFit];
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [KVNProgress showErrorWithStatus:@"网络异常"];
+    }];
+}
+
 
 //获取下一章
 -(void)getnextChapter
 {
-    if(self.currentChapterIndex == self.ChapterArray.count-1)
+    if(self.currentChapterIndex+1 >= self.ChapterArray.count)
     {
         return;
     }
@@ -204,7 +260,7 @@
     {
         [self.textArray addObject:[self.pageManager stringOfPage:i]];
     }
-
+    
     //设置
     [self setscorller];
 }
@@ -224,51 +280,105 @@
     scroller.bounces = YES;
     //不显示水平滚动条
     scroller.showsHorizontalScrollIndicator = NO;
-    scroller.contentSize = CGSizeMake(SCREEN_WIDTH * (self.pageManager.pageCount+1), self.view.bounds.size.height);
     
-    for(int i = 0;i<(self.pageManager.pageCount+1);i++)
-        
+    if(self.currentChapterIndex!=0)
     {
-        UILabel *textLabel = [[UILabel alloc]initWithFrame:CGRectMake(SCREEN_WIDTH*i+10, 20, SCREEN_WIDTH-20, SCREEN_HEIGHT-30)];
-        textLabel.textColor = JSColor(82, 82, 82);
-        textLabel.font = [UIFont systemFontOfSize:14.f];
-        textLabel.numberOfLines = 0;
-//        if(i==0)
-//        {
-//            if(self.cacheBeforeArray.count>0)
-//            {
-//                textLabel.text = self.cacheBeforeArray[self.cacheBeforeArray.count-1];
-//            }
-//            else
-//            {
-//                textLabel.text = @"\t很抱歉由于网络问题未能获取到该章节，请重试！请重试！请重试！";
-//            }
-//            self.cacheBeforeLabel = textLabel;
-//        }
-        if(i<self.pageManager.pageCount)
+        scroller.contentSize = CGSizeMake(SCREEN_WIDTH * (self.textArray.count+2), self.view.bounds.size.height);
+        for(int i = 0;i<(self.textArray.count+2);i++)
+            
         {
-            textLabel.text = [self.pageManager stringOfPage:i%_pageManager.pageCount];
+            UILabel *textLabel = [[UILabel alloc]initWithFrame:CGRectMake(SCREEN_WIDTH*i+10, 20, SCREEN_WIDTH-20, SCREEN_HEIGHT-30)];
+            textLabel.textColor = JSColor(82, 82, 82);
+            textLabel.font = [UIFont systemFontOfSize:14.f];
+            textLabel.numberOfLines = 0;
+            if(i==0)
+            {
+                if(self.cacheBeforeArray.count>0)
+                {
+                    textLabel.text = self.cacheBeforeArray[self.cacheBeforeArray.count-1];
+                }
+                else
+                {
+                    textLabel.text = @"\t很抱歉由于网络问题未能获取到该章节，请重试！请重试！请重试！";
+                }
+                self.cacheBeforeLabel = textLabel;
+            }
+            else if(i<_textArray.count+1)
+            {
+                textLabel.text = self.textArray[i-1];
+            }
+            else if(i==_textArray.count+1)
+            {
+                textLabel.text = @"\t很抱歉由于网络问题未能获取到该章节，请重试！请重试！请重试！";
+                self.cacheNextLabel = textLabel;
+            }
+            
+            NSLog(@"%@",textLabel.text);
+            NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc]initWithString:textLabel.text];
+            NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc]init];
+            [paragraphStyle setLineSpacing:10];//行距的大小
+            [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, textLabel.text.length)];
+            textLabel.attributedText = attributedString;
+            [textLabel sizeToFit];
+            
+            [scroller addSubview:textLabel];
+            
         }
-        else if(i==self.pageManager.pageCount)
+        //从一开始显示
+        if(self.isNext)
         {
-            textLabel.text = @"\t很抱歉由于网络问题未能获取到该章节，请重试！请重试！请重试！";
-            self.cacheNextLabel = textLabel;
+            [scroller setContentOffset:CGPointMake(SCREEN_WIDTH, 0)];
         }
-        
-        NSLog(@"%@",textLabel.text);
-        NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc]initWithString:textLabel.text];
-        NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc]init];
-        [paragraphStyle setLineSpacing:10];//行距的大小
-        [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, textLabel.text.length)];
-        textLabel.attributedText = attributedString;
-        [textLabel sizeToFit];
-        
-        [scroller addSubview:textLabel];
+        else
+        {
+            [scroller setContentOffset:CGPointMake(SCREEN_WIDTH*(self.textArray.count), 0)];
+        }
+    }
+    else
+    {
+        scroller.contentSize = CGSizeMake(SCREEN_WIDTH * (self.textArray.count+1), self.view.bounds.size.height);
+        for(int i = 0;i<(self.textArray.count+1);i++)
+            
+        {
+            UILabel *textLabel = [[UILabel alloc]initWithFrame:CGRectMake(SCREEN_WIDTH*i+10, 20, SCREEN_WIDTH-20, SCREEN_HEIGHT-30)];
+            textLabel.textColor = JSColor(82, 82, 82);
+            textLabel.font = [UIFont systemFontOfSize:14.f];
+            textLabel.numberOfLines = 0;
+            if(i<self.textArray.count)
+            {
+                textLabel.text = self.textArray[i];
+            }
+            else if(i==self.textArray.count)
+            {
+                textLabel.text = @"\t很抱歉由于网络问题未能获取到该章节，请重试！请重试！请重试！";
+                self.cacheNextLabel = textLabel;
+            }
+            
+            NSLog(@"%@",textLabel.text);
+            NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc]initWithString:textLabel.text];
+            NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc]init];
+            [paragraphStyle setLineSpacing:10];//行距的大小
+            [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, textLabel.text.length)];
+            textLabel.attributedText = attributedString;
+            [textLabel sizeToFit];
+            
+            [scroller addSubview:textLabel];
+            
+        }
+        //从一开始显示
+        //从一开始显示
+        if(self.isNext)
+        {
+            [scroller setContentOffset:CGPointMake(0, 0)];
+        }
+        else
+        {
+            [scroller setContentOffset:CGPointMake(SCREEN_WIDTH*(self.textArray.count-1), 0)];
+        }
     }
     self.lastX = SCREEN_WIDTH;
     
-    //从一开始显示
-    [scroller setContentOffset:CGPointMake(0, 0)];
+    
     [self.view addSubview:scroller];
     self.MainScroller = scroller;
     self.MainScroller.delegate = self;
@@ -279,7 +389,14 @@
     [self.MainScroller addGestureRecognizer:sigleTapRecognizer];
     
     //去取下一章缓存
-    [self getnextChapter];
+    if(self.isNext)
+    {
+        [self getnextChapter];
+    }
+    else
+    {
+        [self getBeforeChapter];
+    }
 }
 
 /**
@@ -288,32 +405,86 @@
  */
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
-    if(scrollView.contentOffset.x/SCREEN_WIDTH == self.textArray.count)
+    if(self.currentChapterIndex == 0&&scrollView.contentOffset.x == 0)
     {
-        self.currentChapterIndex+=1;
-        [self.MainScroller removeFromSuperview];
-        self.cacheBeforeArray = [self.textArray copy];
-        self.textArray = nil;
-        self.textArray = [NSMutableArray array];
-        for(int i=0;i<self.cacheNextArray.count;i++)
-        {
-            [self.textArray addObject:self.cacheNextArray[i]];
-        }
-        [self setscorller];
+        [KVNProgress showErrorWithStatus:@"没有上一章了"];
+        return;
     }
-//    else if(scrollView.contentOffset.x == 0)
-//    {
-//        self.currentChapterIndex-=1;
-//        [self.MainScroller removeFromSuperview];
-//        self.cacheNextArray = [self.textArray copy];
-//        self.textArray = nil;
-//        self.textArray = [NSMutableArray array];
-//        for(int i=0;i<self.cacheBeforeArray.count;i++)
-//        {
-//            [self.textArray addObject:self.cacheNextArray[i]];
-//        }
-//        [self setscorller];
-//    }
+    if(self.currentChapterIndex+1 == self.ChapterArray.count&&scrollView.contentOffset.x/SCREEN_WIDTH == self.textArray.count+1)
+    {
+        [KVNProgress showErrorWithStatus:@"没有下一章了"];
+        return;
+    }
+    if(self.currentChapterIndex == 0)
+    {
+        if(scrollView.contentOffset.x/SCREEN_WIDTH == self.textArray.count)
+        {
+            self.currentChapterIndex+=1;
+            [self.MainScroller removeFromSuperview];
+            self.cacheBeforeArray = [self.textArray copy];
+            self.textArray = nil;
+            self.textArray = [NSMutableArray array];
+            for(int i=0;i<self.cacheNextArray.count;i++)
+            {
+                [self.textArray addObject:self.cacheNextArray[i]];
+            }
+            self.isNext = YES;
+            [self setscorller];
+        }
+        else if(scrollView.contentOffset.x == 0)
+        {
+            if(self.currentChapterIndex == 0)
+            {
+                return;
+            }
+            self.currentChapterIndex-=1;
+            [self.MainScroller removeFromSuperview];
+            self.cacheNextArray = [self.textArray copy];
+            self.textArray = nil;
+            self.textArray = [NSMutableArray array];
+            for(int i=0;i<self.cacheBeforeArray.count;i++)
+            {
+                [self.textArray addObject:self.cacheBeforeArray[i]];
+            }
+            self.isNext = NO;
+            [self setscorller];
+        }
+    }
+    else
+    {
+        if(scrollView.contentOffset.x/SCREEN_WIDTH == self.textArray.count+1)
+        {
+            self.currentChapterIndex+=1;
+            [self.MainScroller removeFromSuperview];
+            self.cacheBeforeArray = [self.textArray copy];
+            self.textArray = nil;
+            self.textArray = [NSMutableArray array];
+            for(int i=0;i<self.cacheNextArray.count;i++)
+            {
+                [self.textArray addObject:self.cacheNextArray[i]];
+            }
+            self.isNext = YES;
+            [self setscorller];
+        }
+        else if(scrollView.contentOffset.x == 0)
+        {
+            if(self.currentChapterIndex == 0)
+            {
+                return;
+            }
+            self.currentChapterIndex-=1;
+            [self.MainScroller removeFromSuperview];
+            self.cacheNextArray = [self.textArray copy];
+            self.textArray = nil;
+            self.textArray = [NSMutableArray array];
+            for(int i=0;i<self.cacheBeforeArray.count;i++)
+            {
+                [self.textArray addObject:self.cacheBeforeArray[i]];
+            }
+            self.isNext = NO;
+            [self setscorller];
+        }
+    }
 }
 
 
@@ -402,9 +573,9 @@
     }
     else if(index == 8)
     {
-        
+        [self.navigationController popViewControllerAnimated:YES];
     }
-
+    
     
 }
 //懒加载初始化，在复用数组中有三个imageview
